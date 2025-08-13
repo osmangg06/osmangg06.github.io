@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SnapMeetTV</title>
   <style>
-    /* Sayfa sıfırlama ve full screen foto */
     * {
       margin: 0;
       padding: 0;
@@ -14,29 +13,31 @@
     html, body {
       height: 100%;
       width: 100%;
-    }
-    body {
       font-family: Arial, sans-serif;
-      overflow: hidden;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #000;
+      overflow: hidden;
     }
-    /* Fullscreen fotoğraf */
+    /* Hafif küçültülmüş ve ortalanmış foto */
     .bg-img {
+      width: 85%;       /* biraz daha küçük, ekranın %85'i */
+      max-height: 85%;  /* ekranı aşmasın */
+      height: auto;     /* oranı koru */
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 99%;
-      height: 99%;
-      object-fit: cover;
-      z-index: -1; /* arka planda kalacak */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.7);
     }
-    /* Site içeriği */
     .content {
       text-align: center;
       color: white;
+      z-index: 1;
+      position: relative;
     }
     h1 {
       font-size: 60px;
@@ -64,10 +65,9 @@
   </style>
 </head>
 <body>
-  <!-- Fullscreen fotoğraf -->
+  <!-- Hafif küçültülmüş ve ortalanmış fotoğraf -->
   <img src="https://raw.githubusercontent.com/osmangg06/osmangg06.github.io/ee0c46658b01dc7f5e058e986b2f7a4f2064a602/snapmeet%20original%20lezzet.png" alt="SnapMeet" class="bg-img">
 
-  <!-- Site içeriği -->
   <div class="content">
     <h1>SnapMeetTV</h1>
     <p>Görüntülü sohbetin en eğlenceli adresi</p>
